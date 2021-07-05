@@ -7,14 +7,16 @@ namespace SocialNetwork.BLL.Models
     public class Friend
     {
         public int Id { get; }
-        public string UserEmail { get; }
-        public string FriendEmail { get; }
+        public string FirstName { get; }
+        public string LastName { get; }
+        //public string UserEmail { get; }
+        //public string FriendEmail { get; }
 
-        public Friend(int id, string userEmail, string friendEmail)
+        public Friend(int id, string firstName, string lastName)
         {
             this.Id = id;
-            this.UserEmail = userEmail;
-            this.FriendEmail = friendEmail;
+            this.FirstName = firstName;
+            this.LastName = lastName;
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using SocialNetwork.BLL.Models;
 using SocialNetwork.BLL.Services;
+using SocialNetwork.PLL.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,7 @@ namespace SocialNetwork.PLL.Views
             {
                 Console.WriteLine("Входящие сообщения: {0}", user.IncomingMessages.Count());
                 Console.WriteLine("Исходящие сообщения: {0}", user.OutgoingMessages.Count());
+                Console.WriteLine("Друзья: {0}", user.Friends.Count());
 
                 Console.WriteLine("Просмотреть информацию о моём профиле (нажмите 1)");
                 Console.WriteLine("Редактировать мой профиль (нажмите 2)");
@@ -28,11 +30,12 @@ namespace SocialNetwork.PLL.Views
                 Console.WriteLine("Написать сообщение (нажмите 4)");
                 Console.WriteLine("Просмотреть входящие сообщения (нажмите 5)");
                 Console.WriteLine("Просмотреть исходящие сообщения (нажмите 6)");
-                Console.WriteLine("Выйти из профиля (нажмите 7)");
+                Console.WriteLine("Посмотреть друзей (нажмите 7)");
+                Console.WriteLine("Выйти из профиля (нажмите 8)");
 
                 string keyValue = Console.ReadLine();
 
-                if (keyValue == "7") break;
+                if (keyValue == "8") break;
 
                 switch (keyValue)
                 {
@@ -70,6 +73,17 @@ namespace SocialNetwork.PLL.Views
                     case "6":
                         {
                             Program.userOutcomingMessageView.Show(user.OutgoingMessages);
+                            break;
+                        }
+
+                    case "7":
+                        {
+                            Program.userFriendsView.Show(user.Friends);
+                            break;
+                        }
+                    default:
+                        {
+                            AlertMessage.Show("Некорректный ввод!");
                             break;
                         }
                 }

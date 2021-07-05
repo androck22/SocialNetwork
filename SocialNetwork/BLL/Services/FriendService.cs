@@ -28,9 +28,8 @@ namespace SocialNetwork.BLL.Services
             friendRepository.FindAllByUserId(userId).ToList().ForEach(m =>
             {
                 var senderUserEntity = userRepository.FindById(m.user_id);
-                var recipientUserEntity = userRepository.FindById(m.friend_id);
 
-                friends.Add(new Friend(m.id, senderUserEntity.email, recipientUserEntity.email));
+                friends.Add(new Friend(m.id, senderUserEntity.firstname, senderUserEntity.lastname));
             });
 
             return friends;
@@ -53,7 +52,7 @@ namespace SocialNetwork.BLL.Services
             var friendEntity = new FriendEntity()
             {
                 user_id = friendAddnigData.SenderId,
-                friend_id = findUserEntity.id
+                id = findUserEntity.id
             };
 
             if (this.friendRepository.Create(friendEntity) == 0)
