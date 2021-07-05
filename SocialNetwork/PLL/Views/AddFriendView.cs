@@ -46,7 +46,7 @@ namespace SocialNetwork.PLL.Views
             }
             catch (Exception)
             {
-                AlertMessage.Show("Произошла ошибка при отправке сообщения!");
+                AlertMessage.Show("Произошла ошибка при добавлении пользователя в друзья!");
             }
         }
     }

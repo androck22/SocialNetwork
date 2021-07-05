@@ -43,7 +43,7 @@ namespace SocialNetwork.BLL.Services
             if (!new EmailAddressAttribute().IsValid(friendAddnigData.FriendMail))
                 throw new ArgumentNullException();
 
-            if (userRepository.FindByEmail(friendAddnigData.FriendMail) != null)
+            if (userRepository.FindByEmail(friendAddnigData.FriendMail) == null)
                 throw new ArgumentNullException();
 
             var findUserEntity = this.userRepository.FindByEmail(friendAddnigData.FriendMail);
