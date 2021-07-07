@@ -29,7 +29,7 @@ namespace SocialNetwork.BLL.Services
             {
                 var senderUserEntity = userRepository.FindById(m.user_id);
 
-                friends.Add(new Friend(m.id, senderUserEntity.firstname, senderUserEntity.lastname));
+                friends.Add(new Friend(m.friend_id, senderUserEntity.firstname, senderUserEntity.lastname));
             });
 
             return friends;
@@ -37,13 +37,7 @@ namespace SocialNetwork.BLL.Services
 
         public void AddFriend(FriendAddnigData friendAddnigData)
         {
-            if (String.IsNullOrEmpty(friendAddnigData.FriendMail))
-                throw new ArgumentNullException();
-
             if (!new EmailAddressAttribute().IsValid(friendAddnigData.FriendMail))
-                throw new ArgumentNullException();
-
-            if (userRepository.FindByEmail(friendAddnigData.FriendMail) == null)
                 throw new ArgumentNullException();
 
             var findUserEntity = this.userRepository.FindByEmail(friendAddnigData.FriendMail);
@@ -52,7 +46,7 @@ namespace SocialNetwork.BLL.Services
             var friendEntity = new FriendEntity()
             {
                 user_id = friendAddnigData.SenderId,
-                id = findUserEntity.id
+                friend_id = findUserEntity.id
             };
 
             if (this.friendRepository.Create(friendEntity) == 0)

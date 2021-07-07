@@ -9,8 +9,6 @@ namespace SocialNetwork.BLL.Models
         public int Id { get; }
         public string FirstName { get; }
         public string LastName { get; }
-        //public string UserEmail { get; }
-        //public string FriendEmail { get; }
 
         public Friend(int id, string firstName, string lastName)
         {
