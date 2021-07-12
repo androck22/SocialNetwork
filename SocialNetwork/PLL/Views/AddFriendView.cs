@@ -19,7 +19,7 @@ namespace SocialNetwork.PLL.Views
             this.userService = userService;
         }
 
-        public void Show(User user)
+        public void Show(ref User user)
         {
             var friendAddingData = new FriendAddnigData();
 

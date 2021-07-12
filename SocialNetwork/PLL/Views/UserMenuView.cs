@@ -53,7 +53,7 @@ namespace SocialNetwork.PLL.Views
 
                     case "3":
                         {
-                            Program.addFriendView.Show(user);
+                            Program.addFriendView.Show(ref user);                            
                             break;
                         }
 
@@ -87,6 +87,8 @@ namespace SocialNetwork.PLL.Views
                             break;
                         }
                 }
+
+                //user = userService.FindById(user.Id);
             }
 
         }
