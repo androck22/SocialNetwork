@@ -87,10 +87,7 @@ namespace SocialNetwork.PLL.Views
                             break;
                         }
                 }
-
-                //user = userService.FindById(user.Id);
             }
-
         }
     }
 }
